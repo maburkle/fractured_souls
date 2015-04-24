@@ -1,6 +1,6 @@
-class WeaponType < ActiveRecord::Base
+class WeaponClassification < ActiveRecord::Base
 
-	belongs_to :weapon
+	has_many :weapon
 
 	def display_name
 		self.name.split.map(&:capitalize).join(' ')

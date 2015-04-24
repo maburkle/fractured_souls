@@ -1,42 +1,48 @@
-<%= form_for @weapon do |f| %>
-  <div class="field col-sm-12">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for @weapon do |f| %>
+      <div class="field col-sm-6">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
 
-  <div class="field">
-    <%= f.label :weapon_type_id, "Type" %><br />
-    <%= f.select :weapon_type_id, options_from_collection_for_select(@types, :id, :display_name) %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :weapon_classification_id, "Type" %><br />
+        <%= f.select :weapon_classification_id, options_from_collection_for_select(@types, :id, :display_name) %>
+      </div>
 
-  <div class="field">
-    <%= f.label :range %><br />
-    <%= f.number_field :range %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :range %><br />
+        <%= f.number_field :range %>
+      </div>
 
-  <div class="field">
-    <%= f.label :power %><br />
-    <%= f.number_field :power %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :power %><br />
+        <%= f.number_field :power %>
+      </div>
 
-  <div class="field">
-    <%= f.label :power_modifier, "Power Incriment" %><br />
-    <%= f.number_field :power_modifier %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :power_modifier, "Power Incriment" %><br />
+        <%= f.number_field :power_modifier %>
+      </div>
 
-  <div class="field">
-    <%= f.label :soul_rune_slots, "Soul Rune Slots" %><br />
-    <%= f.number_field :soul_rune_slots %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :soul_rune_slots, "Soul Rune Slots" %><br />
+        <%= f.number_field :soul_rune_slots %>
+      </div>
 
-  <div class="field">
-    <%= f.label :weight %><br />
-    <%= f.number_field :weight, :step => 'any' %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :weight %><br />
+        <%= f.number_field :weight, :step => 'any' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :cost %><br />
-    <%= f.number_field :cost, :step => 0.25 %>
-  </div>
+      <div class="field col-sm-6">
+        <%= f.label :cost %><br />
+        <%= f.number_field :cost, :step => 0.25 %>
+      </div>
 
-<% end %>
+      <%= f.submit "Create", class: "btn" %>
+
+    <% end %>
+  </div>
+</div>

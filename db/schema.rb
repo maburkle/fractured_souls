@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421193449) do
+ActiveRecord::Schema.define(version: 20150423003212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,49 @@ ActiveRecord::Schema.define(version: 20150421193449) do
     t.datetime "updated_at"
   end
 
+  create_table "races", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "speed"
+    t.integer  "focus"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "hit_points"
+  end
+
+  create_table "racial_skills", force: :cascade do |t|
+    t.integer  "skill_id"
+    t.integer  "race_id"
+    t.boolean  "bonus?"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "classification"
+  end
+
+  create_table "spells", force: :cascade do |t|
+    t.string  "name"
+    t.integer "castable_id"
+    t.string  "castable_type"
+    t.text    "flavor_text"
+    t.integer "range"
+    t.string  "target"
+    t.integer "focus_cost"
+    t.string  "action"
+    t.string  "damage"
+    t.string  "effect"
+    t.string  "critical_effect"
+    t.string  "great_effect"
+    t.string  "good_effect"
+    t.text    "special"
+    t.text    "prereq"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,7 +105,7 @@ ActiveRecord::Schema.define(version: 20150421193449) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "weapon_types", force: :cascade do |t|
+  create_table "weapon_classifications", force: :cascade do |t|
     t.string "name"
   end
 
@@ -81,7 +119,7 @@ ActiveRecord::Schema.define(version: 20150421193449) do
     t.decimal  "cost"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "weapon_type_id"
+    t.integer  "weapon_classification_id"
   end
 
 end

@@ -1,0 +1,8 @@
+<% @groups.each_pair do |classification, skills| %>
+	<h2><%= classification %></h2>
+	<% skills.each do |skill| %>
+		<div><%= link_to skill.name, skill_path(skill) %></div>
+	<% end %>
+<% end %>
+
+<a href="/skills/new"><button class="btn" >New Skill</button></a>

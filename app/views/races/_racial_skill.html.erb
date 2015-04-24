@@ -1,0 +1,9 @@
+<div class="field col-sm-6">
+  <%= b.label :skill_id, "Skill" %><br />
+  <%= b.select :skill_id, options_from_collection_for_select(@skills, :id, :name) %>
+</div>
+
+<div class="field col-sm-6">
+  <%= b.label :amount %><br />
+  <%= b.number_field :amount %>
+</div>

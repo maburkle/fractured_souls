@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for @race do |f| %>
+      <div class="field col-sm-6">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :speed %><br />
+        <%= f.number_field :speed %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :hit_points %><br />
+        <%= f.number_field :hit_points %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :focus %><br />
+        <%= f.number_field :focus %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :description %><br />
+        <%= f.text_area :description %>
+      </div>
+
+        <%= f.fields_for :racial_skills do |builder| %>
+
+          <div class="row">
+            <%= render 'racial_skill', :b => builder %>
+          </div>
+
+        <% end %>
+
+      <%= f.submit "Create", class: "btn" %>
+
+    <% end %>
+  </div>
+</div>

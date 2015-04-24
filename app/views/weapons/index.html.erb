@@ -1,0 +1,8 @@
+<% @groups.each_pair do |classification, weapons| %>
+	<div><%= classification %></div>
+	<% weapons.each do |weapon| %>
+		<div><%= weapon.name %></div>
+	<% end %>
+<% end %>
+
+<a href="/weapons/new"><button class="btn" >New Weapon</button></a>

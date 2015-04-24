@@ -14,3 +14,26 @@
  *= require _bootstrap
  *= require_self
  */
+
+.background-image {
+  background: url(City.jpg) no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.navbar {
+	margin-bottom: 0;
+	background-color: rgba(0,0,0, 0.5);
+	position: absolute;
+	width: 100%;
+	ul {
+		li {
+			a {
+				color: white;
+			}
+		}
+		.dropdown-menu {
+			background-color: rgba(0,0,0, 0.5);
+		}
+	}
+}

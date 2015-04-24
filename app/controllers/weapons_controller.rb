@@ -1,7 +1,7 @@
 class WeaponsController < ApplicationController
 
 	def index
-		@weapons = Weapon.all.group(:type)
+		@groups = Weapon.all.group_by(&:classification_name)
 	end
 
 	def show
@@ -11,7 +11,7 @@ class WeaponsController < ApplicationController
 		@weapon = Weapon.new(weapon_params)
 
     if @weapon.save
-      redirect_to weapon_path
+      redirect_to weapons_path
       flash.notice = "#{@weapon.name} was sucessfully created."
     else
     	flash.alert = "Weapon could not be created."
@@ -20,7 +20,7 @@ class WeaponsController < ApplicationController
 
 	def new
 		@weapon = Weapon.new
-		@types = WeaponType.all
+		@types = WeaponClassification.all
 	end
 
 	def update
@@ -31,6 +31,6 @@ class WeaponsController < ApplicationController
 
 	private
 	def weapon_params
-    params.require(:weapon).permit(:name, :type, :range, :power, :power_modifier, :soul_rune_slots, :weight, :cost)
+    params.require(:weapon).permit(:weapon_classification_id, :name, :range, :power, :power_modifier, :soul_rune_slots, :weight, :cost)
   end
 end

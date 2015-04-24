@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-WeaponType.create([ {name: "fist"},
+WeaponClassification.create([ {name: "fist"},
 										{name: "one hand melee"},
 										{name: "two hand melee"},
 										{name: "pistol"},
