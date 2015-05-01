@@ -5,7 +5,7 @@ class Race < ActiveRecord::Base
 
 	accepts_nested_attributes_for :racial_skills
 
-	def build_spell
-		self.spells.new
+	def build_spell(opts = {})
+		self.spells.new(opts)
 	end
 end

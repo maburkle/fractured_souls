@@ -1,0 +1,84 @@
+	<div class="row">
+	<% spells.each do |spell| %>
+		<div class="col-sm-3 col-sm-offset-1 spell-holder">
+			<div class="row">
+				<div class="<%= spell.action %> <%= spell.free? %> col-xs-7"><%= spell.name %></div>
+				<div class="<%= spell.action %> <%= spell.free? %> col-xs-5 text-right"><%= spell.castable.name %></div>
+			</div>
+			<div class="row">
+				<div class="flavor-text col-xs-12"><%= spell.flavor_text %></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 spell-action"><%= spell.action %></div>
+
+				<div class="col-xs-4 spell-focus-cost">
+					<% if spell.focus_cost != 0 %>
+						<%= spell.focus_cost %> Focus
+					<% else %>
+						Free
+					<% end %>
+				</div>
+
+				<% if spell.range.present? && spell.range > 0 %>
+					<div class="col-xs-4 spell-range"><%= spell.range %> ft</div>
+				<% elsif spell.range == -1 %>
+					<div class="col-xs-4 spell-range">Weapon</div>
+				<% else %>
+					<div class="col-xs-4 spell-range">Self</div>
+				<% end %>
+			</div>
+
+			<% unless spell.special.blank? %>
+				<div class="row special-row">
+					<div class="col-xs-2 spell-label">Special: </div>
+					<div class="col-xs-10"><%= spell.special %> </div>
+				</div>
+			<% end %>
+
+			<% unless spell.target.blank? %>
+				<div class="row special-row">
+					<div class="col-xs-2 spell-label">Target: </div>
+					<div class="col-xs-10"><%= spell.target %> </div>
+				</div>
+			<% end %>
+
+			<% unless spell.damage.blank? %>
+				<div class="row special-row">
+					<div class="col-xs-2 spell-label">Damage: </div>
+					<div class="col-xs-10"><%= spell.damage %> Weapon Damage + <%= spell.castable.name %> Skill</div>
+				</div>
+			<% end %>
+
+			<% unless spell.effect.blank? %>
+				<div class="row special-row">
+					<div class="col-xs-2 spell-label">Effect: </div>
+					<div class="col-xs-10"><%= spell.effect %> </div>
+				</div>
+
+				<% unless spell.critical_effect.blank? %>
+					<div class="row">
+						<div class="col-xs-2 spell-label">Critical: </div>
+						<div class="col-xs-10"><%= spell.critical_effect %> </div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2 spell-label">Great: </div>
+						<div class="col-xs-10"><%= spell.great_effect %> </div>
+					</div>
+					<div class="row">
+						<div class="col-xs-2 spell-label">Good: </div>
+						<div class="col-xs-10"><%= spell.good_effect %> </div>
+					</div>
+				<% end %>
+
+			<% end %>
+
+			<% if spell.prereq.present? %>
+				<div class="row special-row">
+					<div class="col-xs-2 spell-label">Prereq: </div>
+					<div class="col-xs-10"><%= spell.prereq %></div>
+				</div>
+			<% end %>
+
+		</div>
+	<% end %>
+</div>

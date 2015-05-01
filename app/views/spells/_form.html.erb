@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for([@parent, @spell]) do |f| %>
+      <div class="field col-sm-6">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :flavor_text, "Flavor Text" %><br />
+        <%= f.text_area :flavor_text %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :range %><br />
+        <%= f.number_field :range %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :focus_cost, "Focus Cost" %><br />
+        <%= f.number_field :focus_cost %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :action, "Action Cost" %><br />
+        <%= f.select(:action, @types.map { |value| [ value, value ] }) %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :target %><br />
+        <%= f.text_field :target %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :damage %><br />
+        <%= f.number_field :damage %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :skill_damage_multipler, "Skill Damage Modifier" %><br />
+        <%= f.number_field :skill_damage_multipler %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :effect %><br />
+        <%= f.text_area :effect %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :critical_effect %><br />
+        <%= f.text_field :critical_effect %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :great_effect %><br />
+        <%= f.text_field :great_effect %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :good_effect %><br />
+        <%= f.text_field :good_effect %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :special %><br />
+        <%= f.text_area :special %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :prereq %><br />
+        <%= f.text_area :prereq %>
+      </div>
+
+      <%= f.submit class: "btn" %>
+
+    <% end %>
+  </div>
+</div>

@@ -31,9 +31,17 @@
 			a {
 				color: white;
 			}
+			a:hover, a:focus {
+				background-color: rgba(0,0,0, 0.5);
+				color: red;
+			}
 		}
 		.dropdown-menu {
 			background-color: rgba(0,0,0, 0.5);
 		}
 	}
 }
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+			background-color: rgba(0,0,0, 0.5);
+		}

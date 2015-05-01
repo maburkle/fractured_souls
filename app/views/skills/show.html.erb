@@ -1,3 +1,5 @@
-<%= @skill.name %>
+<h1><%= @skill.name %></h1>
+
+<%= render partial: 'shared/spells', locals: { spells: @spells } %>
 
 <%= link_to "New Spell", new_skill_spell_path(@skill) %>

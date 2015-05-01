@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423003212) do
+ActiveRecord::Schema.define(version: 20150430204816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "character_skill_points", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "skill_id"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "characters", force: :cascade do |t|
     t.string   "first_name"
@@ -37,6 +45,16 @@ ActiveRecord::Schema.define(version: 20150423003212) do
     t.integer  "race_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "maximum_focus"
+    t.integer  "current_focus"
+    t.string   "nickname"
+  end
+
+  create_table "characters_spells", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "spell_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "races", force: :cascade do |t|
@@ -47,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150423003212) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "hit_points"
+    t.integer  "carry_weight"
   end
 
   create_table "racial_skills", force: :cascade do |t|
@@ -82,6 +101,7 @@ ActiveRecord::Schema.define(version: 20150423003212) do
     t.string  "good_effect"
     t.text    "special"
     t.text    "prereq"
+    t.integer "skill_damage_multipler"
   end
 
   create_table "users", force: :cascade do |t|

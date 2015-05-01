@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for(@character) do |f| %>
+      <div class="field col-sm-6">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="field col-sm-6">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name %>
+      </div>
+      <div class="field col-sm-6">
+        <%= f.label :nickname %><br />
+        <%= f.text_field :nickname %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :race_id, "Race" %><br />
+        <%= f.select :race_id, options_from_collection_for_select(@races, :id, :name), {:include_blank => 'Select Race'} %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :gender %><br />
+        <%= f.check_box :gender %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :age %><br />
+        <%= f.number_field :age %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :appearence %><br />
+        <%= f.text_area :appearence %>
+      </div>
+
+      <div class="field col-sm-6">
+        <%= f.label :background %><br />
+        <%= f.text_area :background %>
+      </div>
+
+      <%= f.submit class: "btn" %>
+
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">Hit Points</div>
+  <div class="col-sm-2">Focus</div>
+  <div class="col-sm-2">Speed</div>
+  <div class="col-sm-2">Carry Weight</div>
+  <div class="col-sm-2">Soul Points</div>
+  <div class="col-sm-2">Money</div>
+</div>
+<div class="row">
+  <div class="col-sm-2" id="max-hitpoints">0</div>
+  <div class="col-sm-2" id="max-focus">0</div>
+  <div class="col-sm-2" id="character-speed">0</div>
+  <div class="col-sm-2" id="max-weight">0</div>
+  <div class="col-sm-2" id="character-soul-points">10</div>
+  <div class="col-sm-2" id="character-money">$100.00</div>
+</div>

@@ -1,0 +1,8 @@
+<% @groups.each_pair do |classification, spells| %>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="text-center"><%= classification %></h1>
+		</div>
+	</div>
+	<%= render partial: 'shared/spells', locals: { spells: spells } %>
+<% end %>

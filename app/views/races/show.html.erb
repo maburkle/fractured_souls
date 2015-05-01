@@ -1,0 +1,5 @@
+<h1><%= @race.name %></h1>
+
+<%= render partial: 'shared/spells', locals: { spells: @spells } %>
+
+<%= link_to "New Spell", new_race_spell_path(@race) %>
